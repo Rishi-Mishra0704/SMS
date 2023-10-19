@@ -54,6 +54,9 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'sms.urls'
 # settings.py
 AUTH_USER_MODEL = 'core.CustomUser'
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "http://localhost:7000"
+LOGOUT_REDIRECT_URL = "/login/"
 
 TEMPLATES = [
     {

@@ -1,6 +1,9 @@
 from django import forms
 from .models import CustomUser
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+
+
 
 class SignUpForm(UserCreationForm):
     ROLE_CHOICES = [
@@ -31,5 +34,18 @@ class SignUpForm(UserCreationForm):
 
     password2 = forms.CharField(
         widget=forms.PasswordInput(attrs={'placeholder': 'Confirm your password'}),
+    )
+
+
+
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={'placeholder': 'Your username',})
+    )
+
+    password = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={'placeholder': 'Your password',})
     )
 

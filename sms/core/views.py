@@ -20,6 +20,3 @@ def register(request):
 
 
 
-
-
-
