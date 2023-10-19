@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-    self.table_name = 'auth_user'
+    self.table_name = 'core_customuser'
 end

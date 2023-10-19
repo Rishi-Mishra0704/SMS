@@ -1,6 +1,6 @@
 from django import forms
+from .models import CustomUser
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 
 class SignUpForm(UserCreationForm):
     ROLE_CHOICES = [
@@ -14,7 +14,7 @@ class SignUpForm(UserCreationForm):
     )
 
     class Meta:
-        model = User
+        model = CustomUser  # Use your custom user model
         fields = ("username", "email", "password1", "password2", "role")
 
     username = forms.CharField(
@@ -32,3 +32,4 @@ class SignUpForm(UserCreationForm):
     password2 = forms.CharField(
         widget=forms.PasswordInput(attrs={'placeholder': 'Confirm your password'}),
     )
+
