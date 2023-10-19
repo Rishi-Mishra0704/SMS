@@ -34,3 +34,18 @@ class Subject(models.Model):
 
     def __str__(self):
         return self.name  
+    
+
+class Timetable(models.Model):
+    teacher = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+        related_name='created_timetables',
+        limit_choices_to={'user_type': 'teacher'},
+    )
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    schedule = models.DateTimeField()
+
+    def __str__(self):
+        return self.title
