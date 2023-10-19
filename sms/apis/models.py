@@ -8,7 +8,7 @@ class Classroom(models.Model):
         related_name='teaching_classes',
         limit_choices_to={'user_type': 'teacher'}
     )
-    students = models.ManyToManyField(CustomUser, related_name='enrolled_classes')
+    students = models.ManyToManyField(CustomUser, related_name='enrolled_classes', limit_choices_to={'user_type': 'student'})
 
     def __str__(self):
         return f"Classroom with Teacher: {self.teacher.username}"
