@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+# db/seeds.rb
+
+# Seed data for Classroom
+classroom1 = Classroom.create(teacher_id: 1)
+classroom2 = Classroom.create(teacher_id: 1)
+classroom3 = Classroom.create(teacher_id: 1)
+
+
+# Seed data for Timetable
+timetable1 = TimeTable.create(title: 'Math Class', description: 'Math class description', schedule: Time.now, teacher_id: 1)
+timetable2 = TimeTable.create(title: 'Science Class', description: 'Science class description', schedule: Time.now, teacher_id: 1)
+
+
