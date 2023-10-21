@@ -7,13 +7,6 @@ from .models import Classroom
 
 # Create your views here.
 
-@api_view(['GET'])
-def getClass(request):
-    classrooms = Classroom.objects.all()
-    serializer = ClassroomSerializer(classrooms, many=True)
-    return Response(serializer.data)
-
-
 @api_view(['POST'])
 def postClass(request):
     serializer = ClassroomSerializer(data=request.data)
@@ -23,7 +16,7 @@ def postClass(request):
     else:
         return Response(serializer.errors)
     
-@api_view(['GET','PUT','DELETE'])
+@api_view(['PUT'])
 def classDetail(request, pk):
     classroom = Classroom.objects.get(id=pk)
     if request.method == 'GET':
