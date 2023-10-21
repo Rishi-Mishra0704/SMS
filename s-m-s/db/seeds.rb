@@ -8,10 +8,18 @@
 # db/seeds.rb
 
 # Seed data for Classroom
-classroom1 = Classroom.create(teacher_id: 1)
-classroom2 = Classroom.create(teacher_id: 1)
-classroom3 = Classroom.create(teacher_id: 1)
+student_ids = [3, 4, 5]
+teacher_ids = [1, 2]
 
+# Create classrooms and associate them with teachers and students
+Classroom.create(teacher_id: teacher_ids[0])
+Classroom.create(teacher_id: teacher_ids[1])
+
+classrooms = Classroom.all
+
+classrooms[0].students << User.find(student_ids[0])
+classrooms[0].students << User.find(student_ids[2])
+classrooms[1].students << User.find(student_ids[1])
 
 # Seed data for Timetable
 timetable1 = TimeTable.create(title: 'Math Class', description: 'Math class description', schedule: Time.now, teacher_id: 1)
